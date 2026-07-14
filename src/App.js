@@ -494,10 +494,12 @@ export default function App() {
           50% { background-position: 100% 50%; }
           100% { background-position: 0% 50%; }
         }
-
+        
         .app-wrapper {
           min-height: 100vh;
-          padding: 40px 20px;
+          display: flex;
+          flex-direction: column;
+          padding: 20px 10px;
           font-family: 'Cairo', sans-serif;
           background-size: 400% 400% !important;
           animation: dynamicGradient 15s ease infinite !important;
@@ -543,7 +545,12 @@ export default function App() {
         .light-theme textarea { background: rgba(241, 245, 249, 0.8); border-color: #cbd5e1; color: #0f172a; }
         .light-theme pre { background: rgba(241, 245, 249, 0.9); }
 
-        .doctor-container { max-width: 1100px; margin: 0 auto; }
+        .doctor-container {
+             max-width: 1100px; 
+             width: 100%;
+             margin: 0 auto; 
+             padding: 0 15px;
+             }
 
         header {
           display: flex;
@@ -738,7 +745,16 @@ export default function App() {
         .explanation-text { font-size: 1.05rem; line-height: 1.8; margin-bottom: 20px; }
         .code-block-title { font-size: 0.9rem; opacity: 0.7; margin-bottom: 6px; }
 
-        pre { padding: 15px; border-radius: 8px; overflow-x: auto; font-family: 'Fira Code', monospace; font-size: 0.85rem; margin-bottom: 20px; }
+        pre {
+        padding: 15px; 
+        border-radius: 8px; 
+        overflow-x: auto; 
+        max-width: 100%;
+        box-sizing: border-box;
+        font-family: 'Fira Code', monospace; 
+        font-size: 0.85rem; 
+        margin-bottom: 20px; 
+        }
 
         .rtl-dir pre { border-right: 4px solid #ef4444; }
         .ltr-dir pre { border-left: 4px solid #ef4444; }
@@ -769,26 +785,38 @@ body {
   overflow-x: hidden;
 }
 
+*{box-sizing: border-box;}
 .app-wrapper {
   width: 100%;
+  min-height: 100dvh;
   overflow-x: hidden;
+  display: flex;
+  direction: column;
+  padding: 20px 10px;
 }
 
-.doctor-container {
-  width: 100%;
-  max-width: 1100px;
-  margin: auto;
+.doctor-container{
+    width:100%;
+    max-width:1100px;
+    margin:0 auto;
+    padding:0 15px;
 }
 
-.workspace {
-  display: grid;
-  grid-template-columns: 1fr 1.2fr;
-  gap: 30px;
+textarea{
+    min-height:180px;
+}
+
+.workspace{
+    display:grid;
+    grid-template-columns:1fr;
+    gap:20px;
 }
 
 textarea,
 pre {
   width: 100%;
+  max-width: 100%;
+  box-sizing: border-box;
   overflow-x: auto;
 }
 
@@ -801,28 +829,36 @@ img {
 
 .workspace{
 grid-template-columns:1fr;
+gap:20px;
 }
 
 header{
-flex-direction:column;
-align-items:flex-start;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    flex-wrap:wrap;
+    gap:15px;
 }
 
 .controls{
-width:100%;
-justify-content:space-between;
-flex-wrap:wrap;
+    display:flex;
+    gap:10px;
+    align-items:center;
+    flex-wrap:wrap;
 }
 
 .tabs{
 width:100%;
 display:flex;
-flex-wrap:wrap;
+flex-wrap:wrap;.
+gap: 8px;
 }
 
 .tab-button{
 flex:1;
-min-width:150px;
+min-width:120px;
+max-width:100%;
+box-sizing: border-box;
 }
 
 .btn-group{
@@ -865,17 +901,26 @@ font-size:14px;
 }
 
 pre{
-font-size:13px;
+    overflow:auto;
+    overflow-y:hidden;
+    white-space: pre-wrap;
+    word-wrap: break-word;
+    max-width: 100%
+    box-sizing: border-box;
 }
 
 .diagnosis-title{
 font-size:1.15rem;
+word-break: break-word;
+overflow-wrap: anywhere;
 }
 
 .diagnosis-header{
 flex-direction:column;
 align-items:flex-start;
 gap:10px;
+width: 100%;
+box-sizing: border-box;
 }
 
 .copy-btn{
@@ -885,7 +930,10 @@ width:100%;
 .toggle-btn,
 .dropdown-trigger{
 width:100%;
+display: flex;
 justify-content:center;
+align-items:center;
+box-sizing: border-box;
 }
 
 .controls{
@@ -899,7 +947,9 @@ width:100%;
 
 .dropdown-menu{
 width:100%;
-max-width:none;
+max-width:100%;
+box-sizing: border-box;
+overflow-x: hidden;
 }
 
 }
@@ -927,15 +977,47 @@ padding:12px;
 textarea{
 padding:10px;
 font-size:13px;
+width: 100%;
+box-sizing: border-box;
+max-width: 100%;
 }
 
 pre{
 padding:10px;
 font-size:12px;
+white-space: pre-wrap;
+word-wrap: break-word;
+overflow-x: auto;
+max-width: 100%;
+box-sizing: border-box;
 }
 
 .tip-box{
 font-size:.9rem;
+box-sizing: border-box;
+width: 100%;
+}
+
+html,body,#root{
+height:100%;
+width:100%;
+margin: 0;
+padding: 0;
+overflow-x: hidden;
+}
+
+*{
+box-sizing: border-box;
+}
+
+.app-wrapper{
+min-height: 100dvh;
+display: flex;
+flex-direction: column;
+padding: 20px 10px;
+width: 100%;
+max-width: 100%;
+box-sizing: border-box;
 }
 
 }
