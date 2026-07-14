@@ -760,6 +760,185 @@ export default function App() {
           cursor: pointer;
           font-weight: bold;
         }
+        /* ===========================
+   Responsive Design
+=========================== */
+
+html,
+body {
+  overflow-x: hidden;
+}
+
+.app-wrapper {
+  width: 100%;
+  overflow-x: hidden;
+}
+
+.doctor-container {
+  width: 100%;
+  max-width: 1100px;
+  margin: auto;
+}
+
+.workspace {
+  display: grid;
+  grid-template-columns: 1fr 1.2fr;
+  gap: 30px;
+}
+
+textarea,
+pre {
+  width: 100%;
+  overflow-x: auto;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+@media (max-width:992px){
+
+.workspace{
+grid-template-columns:1fr;
+}
+
+header{
+flex-direction:column;
+align-items:flex-start;
+}
+
+.controls{
+width:100%;
+justify-content:space-between;
+flex-wrap:wrap;
+}
+
+.tabs{
+width:100%;
+display:flex;
+flex-wrap:wrap;
+}
+
+.tab-button{
+flex:1;
+min-width:150px;
+}
+
+.btn-group{
+flex-direction:column;
+}
+
+.btn{
+width:100%;
+}
+
+.dropdown-menu{
+right:0;
+left:auto;
+width:250px;
+max-width:90vw;
+}
+
+}
+
+@media (max-width:768px){
+
+.app-wrapper{
+padding:20px 12px;
+}
+
+header h1{
+font-size:1.8rem;
+}
+
+header p{
+font-size:.9rem;
+}
+
+.card{
+padding:18px;
+}
+
+textarea{
+font-size:14px;
+}
+
+pre{
+font-size:13px;
+}
+
+.diagnosis-title{
+font-size:1.15rem;
+}
+
+.diagnosis-header{
+flex-direction:column;
+align-items:flex-start;
+gap:10px;
+}
+
+.copy-btn{
+width:100%;
+}
+
+.toggle-btn,
+.dropdown-trigger{
+width:100%;
+justify-content:center;
+}
+
+.controls{
+flex-direction:column;
+align-items:stretch;
+}
+
+.custom-dropdown-container{
+width:100%;
+}
+
+.dropdown-menu{
+width:100%;
+max-width:none;
+}
+
+}
+
+@media (max-width:480px){
+
+.app-wrapper{
+padding:15px 10px;
+}
+
+header h1{
+font-size:1.5rem;
+}
+
+.tab-button{
+font-size:.9rem;
+padding:10px;
+}
+
+.btn{
+font-size:.9rem;
+padding:12px;
+}
+
+textarea{
+padding:10px;
+font-size:13px;
+}
+
+pre{
+padding:10px;
+font-size:12px;
+}
+
+.tip-box{
+font-size:.9rem;
+}
+
+}
       `}</style>
 
       <div className="doctor-container">
