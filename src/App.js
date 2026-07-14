@@ -1,8 +1,6 @@
 import React, { useState, useEffect, useRef } from 'react';
 
-// الترجمة الكاملة للواجهة لجميع اللغات (موجودة في الكود الأصلي)
-
-// ... (نفس الـ TRANSLATIONS وSUPPORTED_LANGUAGES و ERROR_DATABASE كما في الكود السابق)
+// الترجمة والبيانات كما في الكود الأصلي...
 
 export default function App() {
   const [activeTab, setActiveTab] = useState('doctor');
@@ -222,7 +220,7 @@ export default function App() {
           display: flex;
           gap: 10px;
           align-items: center;
-          flex-wrap: wrap; /* لضمان التوافق مع الشاشات الصغيرة */
+          flex-wrap: wrap;
         }
         .toggle-btn {
           background: #38bdf8;
@@ -311,7 +309,7 @@ export default function App() {
           background: rgba(148, 163, 184, 0.1);
           padding: 6px;
           border-radius: 12px;
-          flex-wrap: wrap; /* لضمان التوافق مع الشاشات الصغيرة */
+          flex-wrap: wrap;
         }
         .tab-button {
           background: none;
@@ -379,7 +377,7 @@ export default function App() {
           }
         }
 
-        /* أزرار المجموعة */
+        /* أزرار */
         .btn-group {
           display: flex;
           gap: 10px;
@@ -437,7 +435,7 @@ export default function App() {
           margin-bottom: 20px;
         }
 
-        /* تحديد لون الإشارة */
+        /* لون الإشارة */
         .rtl-dir pre.good { border-right: 4px solid #10b981; }
         .ltr-dir pre.good { border-left: 4px solid #10b981; }
 
@@ -450,7 +448,7 @@ export default function App() {
           line-height: 1.6;
           color: #38bdf8;
         }
-        /* تحديد لون الخط حسب الاتجاه */
+        /* لون الخط حسب الاتجاه */
         .rtl-dir .tip-box { border-right: 4px solid #38bdf8; }
         .ltr-dir .tip-box { border-left: 4px solid #38bdf8; }
 
@@ -513,13 +511,16 @@ export default function App() {
         }
       `}</style>
 
+      {/* باقي الواجهة كما في الكود السابق... (نفس الهيكل) */}
       <div className="doctor-container">
         <header>
+          {/* رأس الصفحة مع اختيار اللغة وتغيير الوضع */}
           <div>
             <h1>{text.title}</h1>
             <p style={{ color: '#94a3b8', marginTop: '5px' }}>{text.subtitle}</p>
           </div>
           <div className="controls">
+            {/* قائمة اللغات */}
             <div className="custom-dropdown-container" ref={dropdownRef}>
               <button 
                 className="dropdown-trigger" 
@@ -527,7 +528,6 @@ export default function App() {
               >
                 <span>🌐 {currentLangData.flag} {currentLangData.nativeName}</span>
               </button>
-
               {isLangDropdownOpen && (
                 <div className="dropdown-menu">
                   <input 
@@ -553,13 +553,14 @@ export default function App() {
                 </div>
               )}
             </div>
-
+            {/* زر الوضع الليلي / النهاري */}
             <button className="toggle-btn" onClick={toggleTheme}>
               {theme === 'dark' ? '☀️ Light' : '🌙 Dark'}
             </button>
           </div>
         </header>
 
+        {/* التبويبات */}
         <div className="tabs">
           <button 
             className={`tab-button ${activeTab === 'doctor' ? 'active' : ''}`}
@@ -575,7 +576,9 @@ export default function App() {
           </button>
         </div>
 
+        {/* مساحة العمل */}
         <div className="workspace">
+          {/* القسم الأيسر */}
           <div className="card">
             {activeTab === 'doctor' && (
               <div className="form-group">
@@ -599,6 +602,7 @@ export default function App() {
               />
             </div>
 
+            {/* الأزرار */}
             <div className="btn-group">
               {activeTab === 'doctor' ? (
                 <button className="btn btn-primary" onClick={handleDiagnose}>{text.diagnoseBtn}</button>
@@ -612,6 +616,7 @@ export default function App() {
             </div>
           </div>
 
+          {/* القسم الأيمن للنتائج */}
           <div className="card" style={{ display: diagnosis ? 'block' : 'flex', alignItems: 'center', justifyContent: 'center', textAlign: diagnosis ? (lang === 'ar' ? 'right' : 'left') : 'center' }}>
             {diagnosis ? (
               <div>
@@ -621,15 +626,11 @@ export default function App() {
                     {copied ? text.copiedText : text.copyBtn}
                   </button>
                 </div>
-                
                 <p className="explanation-text">{diagnosis.explanation}</p>
-
                 <div className="code-block-title">{text.badCodeTitle}</div>
                 <pre><code>{diagnosis.badCode}</code></pre>
-
                 <div className="code-block-title" style={{ color: '#10b981' }}>{text.goodCodeTitle}</div>
                 <pre className="good"><code>{diagnosis.goodCode}</code></pre>
-
                 <div className="tip-box">
                   <strong>{text.tipTitle}</strong>
                   <p style={{ marginTop: '5px', color: theme === 'dark' ? '#f1f5f9' : '#1e293b' }}>{diagnosis.tip}</p>
