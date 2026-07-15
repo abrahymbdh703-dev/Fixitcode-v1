@@ -466,6 +466,7 @@ export default function App() {
 
         /* استجابة للموبايل */
         @media(max-width: 480px){
+          /* رأس الصفحة */
           header {
             flex-direction: column;
             align-items: flex-start;
@@ -473,28 +474,40 @@ export default function App() {
           header h1 {
             font-size: 1.5rem;
           }
+          /* قائمة الاختيارات */
+          .dropdown-trigger {
+            padding: 8px 12px;
+            font-size: 0.9rem;
+          }
+          .dropdown-search {
+            padding: 6px 10px;
+            font-size: 0.8rem;
+          }
+          /* عناصر التصفح */
+          .dropdown-items-list {
+            max-height: 150px;
+          }
+          /* التبويبات */
           .tabs {
             width: 100%;
             flex-direction: column;
           }
           .tab-button {
-            width: 100%;
-            padding: 12px;
+            padding: 10px;
             font-size: 0.9rem;
           }
+          /* مساحة العمل */
           .workspace {
             grid-template-columns: 1fr;
-            gap: 20px;
+            gap: 15px;
           }
+          /* بطاقات المحتوى */
           .card {
-            padding: 18px;
+            padding: 12px;
           }
+          /* عناصر النموذج */
           textarea {
             font-size: 14px;
-          }
-          pre {
-            font-size: 12px;
-            padding: 10px;
           }
           /* أزرار */
           .btn-group {
@@ -502,11 +515,26 @@ export default function App() {
           }
           .btn {
             width: 100%;
+            padding: 10px;
+            font-size: 0.9rem;
           }
           /* عناصر قائمة الاختيارات */
           .dropdown-menu {
             width: 100%;
             max-width: 100%;
+          }
+          /* نتائج التشخيص */
+          .diagnosis-header {
+            flex-direction: column;
+            align-items: flex-start;
+          }
+          .diagnosis-title {
+            font-size: 1.2rem;
+          }
+          /* الخطوط والكود */
+          pre {
+            font-size: 0.8rem;
+            padding: 10px;
           }
         }
       `}</style>
