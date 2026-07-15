@@ -577,6 +577,32 @@ export default function App() {
             max-width:100%;
             box-sizing:border-box;
           }
+          @media(max-width:768){
+          body{font-size:16px;}
+          .container,work-space{width:100%; padding:15px;}
+          .btn, .dropdown-trigger, .tab-button{
+               width: 100%;
+               min-height:44px;
+               font-size: 16px;
+               padding:12px;
+          }
+          input,textarea,select{
+          width:100%;
+          font-size:16px;
+          box-sizing: border-box;
+          }
+          pre{
+          font-size:14px;
+          white-space:pre-wrap;
+          word-wrap:break-word;
+          overflow-x:auto;
+          max-width:100%;
+          }
+          }
+          @media(max-width:480px){
+          header{flex-direction:column; gap:10px;}
+          .tabs{flex-direction:column;}
+          }
         }
       `}</style>
 
