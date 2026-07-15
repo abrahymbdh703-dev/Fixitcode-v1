@@ -146,7 +146,6 @@ export default function App() {
           box-sizing: border-box;
           margin: 0;
           padding: 0;
-          transition: all 0.3s ease;
         }
 
         .app-wrapper {
@@ -263,6 +262,7 @@ export default function App() {
           box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
           z-index: 1000;
           width: 220px;
+          max-width: calc(100vw-20px);
           padding: 8px;
           display: flex;
           flex-direction: column;
@@ -287,14 +287,21 @@ export default function App() {
           gap: 2px;
         }
         .dropdown-item {
-          padding: 8px 12px;
+          padding: 12px 16px;
           border-radius: 6px;
           cursor: pointer;
-          font-size: 0.9rem;
+          font-size: 1rem;
           display: flex;
           align-items: center;
           gap: 8px;
           color: #e2e8f0;
+          min-height: 44px;
+          transition: background 0.2s;
+        }
+
+        .dropdown-item:hover,
+        .dropdown-item:active{
+        background: #334155;
         }
         .dropdown-item.selected {
           background: #38bdf8;
@@ -314,7 +321,7 @@ export default function App() {
         .tab-button {
           background: none;
           border: none;
-          padding: 10px 24px;
+          padding: 10px 20px;
           border-radius: 8px;
           font-size: 1rem;
           font-weight: bold;
@@ -324,6 +331,10 @@ export default function App() {
           min-width: 120px;
           max-width: 100%;
           text-align: center;
+        }
+
+        .light-theme.tabs{
+        background: rgba(0,0,0,0.05);
         }
         .tab-button.active {
           background: #38bdf8;
@@ -347,9 +358,15 @@ export default function App() {
           border: 1px solid;
           border-radius: 16px;
           padding: 24px;
+          width: 100%;
+          box-sizing: border-box;
+          overflow-wrap:break-word;
         }
         @media(max-width: 768px){
-          .card { padding: 18px; }
+          .card { 
+          padding: 18px; 
+          border-redius: 12px;
+          }
         }
 
         /* عناصر النموذج */
@@ -373,7 +390,7 @@ export default function App() {
         }
         @media(max-width: 768px){
           textarea {
-            font-size: 14px;
+            font-size: 16px;
           }
         }
 
@@ -387,9 +404,10 @@ export default function App() {
           flex: 1;
           padding: 12px;
           border: none;
+          font-weight: bold;
           border-radius: 8px;
           font-size: 1rem;
-          font-weight: bold;
+          min-height:44px;
           cursor: pointer;
           white-space: nowrap;
         }
@@ -406,6 +424,7 @@ export default function App() {
           justify-content: space-between;
           align-items: center;
           flex-wrap: wrap;
+          gap: 12px;
         }
         .diagnosis-title {
           font-size: 1.4rem;
@@ -431,8 +450,11 @@ export default function App() {
           overflow-x: auto;
           max-width: 100%;
           font-family: 'Fira Code', monospace; 
-          font-size: 0.85rem;
+          font-size: 14px;
           margin-bottom: 20px;
+          box-sizing: border-box;
+          white-space: pre-wrap;
+          word-wra*p: break-word;
         }
 
         /* لون الإشارة */
@@ -457,11 +479,13 @@ export default function App() {
           background: #10b981;
           color: white;
           border: none;
-          padding: 4px 10px;
-          border-radius: 4px;
-          font-size: 0.8rem;
+          padding: 8px 12px;
+          border-radius: 6px;
+          font-size: 0.9rem;
           cursor: pointer;
           font-weight: bold;
+          min-height:36px;
+          min-width: 70px;
         }
 
         /* استجابة للموبايل */
@@ -476,16 +500,20 @@ export default function App() {
           }
           /* قائمة الاختيارات */
           .dropdown-trigger {
-            padding: 8px 12px;
-            font-size: 0.9rem;
+            padding: 12px 16px;
+            font-size: 1rem;
+            min-height: 44px;
           }
           .dropdown-search {
-            padding: 6px 10px;
-            font-size: 0.8rem;
+            padding: 10px 12px;
+            font-size: 16px;
+            width:100%;
+            box-sizing: border-box;
           }
           /* عناصر التصفح */
           .dropdown-items-list {
             max-height: 150px;
+            overflow-y: auto;
           }
           /* التبويبات */
           .tabs {
@@ -493,8 +521,10 @@ export default function App() {
             flex-direction: column;
           }
           .tab-button {
-            padding: 10px;
-            font-size: 0.9rem;
+            padding: 12px 10px;
+            font-size: 1rem;
+            min-height:44px;
+            width:100%;
           }
           /* مساحة العمل */
           .workspace {
@@ -507,7 +537,11 @@ export default function App() {
           }
           /* عناصر النموذج */
           textarea {
-            font-size: 14px;
+            font-size: 16px;
+            width:100%;
+            box-sizing: border-box;
+            padding: 12px;
+            min-height:120px;
           }
           /* أزرار */
           .btn-group {
@@ -515,8 +549,10 @@ export default function App() {
           }
           .btn {
             width: 100%;
-            padding: 10px;
-            font-size: 0.9rem;
+            padding:14px 10px;
+            font-size: 1rem;
+            min-height:44px;
+            box-sizing:border-box;
           }
           /* عناصر قائمة الاختيارات */
           .dropdown-menu {
@@ -533,8 +569,13 @@ export default function App() {
           }
           /* الخطوط والكود */
           pre {
-            font-size: 0.8rem;
-            padding: 10px;
+            font-size: 14px;
+            padding: 12px;
+            overflow-x:auto;
+            white-space:pre-wrap;
+            word-wrap: break-word;
+            max-width:100%;
+            box-sizing:border-box;
           }
         }
       `}</style>
