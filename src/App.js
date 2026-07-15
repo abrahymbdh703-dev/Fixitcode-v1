@@ -1,5 +1,6 @@
+import './style.css'; // <--- 
 import React, { useState, useEffect, useRef } from 'react';
-import './style.css'; // <--- ضيف السطر ده بس
+
 
 // TRANSLATIONS و ERROR_DATABASE و SUPPORTED_LANGUAGES حطهم هنا زي ما هما
 
